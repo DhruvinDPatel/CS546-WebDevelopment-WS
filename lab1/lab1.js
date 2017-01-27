@@ -22,6 +22,7 @@ let sumOfSquares = (num1, num2, num3) => {
 }
 
 console.log(sumOfSquares(5,3,10));
+console.log(sumOfSquares(5,"abc",9));
 
 // second function
 
@@ -72,6 +73,9 @@ function cupsOfCoffee(howManyCups){
 }
 
 cupsOfCoffee(5);
+cupsOfCoffee(100);
+cupsOfCoffee(-6);
+cupsOfCoffee("abc");
 
 //forth function
 
