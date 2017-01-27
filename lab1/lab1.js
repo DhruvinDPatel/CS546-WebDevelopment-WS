@@ -22,7 +22,8 @@ let sumOfSquares = (num1, num2, num3) => {
 }
 
 console.log(sumOfSquares(5,3,10));
-console.log(sumOfSquares(5,"abc",9));
+//console.log(sumOfSquares(5,"abc",9));
+console.log("______________________________________________________");
 
 // second function
 
@@ -35,7 +36,7 @@ function sayHelloTo(firstName,lastName,title){
             break;
         case 3: console.log("Hello, " + title + " " + firstName + " " + lastName + "!! Have a good evening");
             break;
-        default: throw new exceptionMsg("/!\\ Missing arguments");
+        default: throw new exceptionMsg("Exception :/!\\ Missing arguments");
             break;
         }
     }catch(e){
@@ -47,41 +48,52 @@ sayHelloTo();
 sayHelloTo("Phil");
 sayHelloTo("Phil", "Barresi");
 sayHelloTo("Phil", "Barresi", "Mr.");
+console.log("______________________________________________________");
 
 //third function
 
 function cupsOfCoffee(howManyCups){
 	try{
-        if((typeof howManyCups === 'number') && howManyCups <= 99){
-            for(let i = howManyCups; i>0; i--){
-                if(i===1){ // If there is  only  one Cup
-                    console.log(i + " cup of coffee on the desk!"+ i +" cup of coffee!")
-                    console.log("Pick it up, drink the cup, no more coffee left on the desk!")
-                }else{
-                    console.log(i + " cups of coffee on the desk!"+ i +" cups of coffee!") // If there are more than one Cups
-                    console.log("Pick one up, drink the cup,"+ (i-1) +" Cups of Coffee on the Desk ")
+        if(typeof howManyCups === 'number'){
+            if(howManyCups > 99){
+                throw new exceptionMsg("Game is 99 Cups of Coffee. Enter a value less than 100!!");
+			}
+            else if(howManyCups>0){
+                for(let i = howManyCups; i>0; i--){
+                    if(i===1){ // If there is  only  one Cup
+                        console.log(i + " cup of coffee on the desk!"+ i +" cup of coffee!")
+                        console.log("Pick it up, drink the cup, no more coffee left on the desk!")
+                    }else{
+                        console.log(i + " cups of coffee on the desk!"+ i +" cups of coffee!") // If there are more than one Cups
+                        console.log("Pick one up, drink the cup,"+ (i-1) +" Cups of Coffee on the Desk ")
+                    }
+                    console.log();
                 }
-                console.log();
+            }
+            else{
+                throw new exceptionMsg("Please Enter a Positive Integer");
             }
         }
         else{
-            throw new exceptionMsg("Game is of 99 Cups of Coffee. Enter a value less than 100!!");;
-        }
-    }catch(e){
-        throw new exceptionMsg("Invalid Input, use numbers only");
-    }
+			throw new exceptionMsg("Please Enter a Integer, No Strings Please");
+		}
+	}
+	catch(e){
+		console.log(e.message);
+	}
 }
 
 cupsOfCoffee(5);
 cupsOfCoffee(100);
-cupsOfCoffee(-6);
-cupsOfCoffee("abc");
+//cupsOfCoffee(-6);
+//cupsOfCoffee("abc");
+console.log("______________________________________________________");
 
 //forth function
 
-function getSubstring(str, subStr) {
-    var matches = str.match(new RegExp(subStr, "g"));
-    console.log("The number of "+ subStr +" in " + str + " is :" + matches.length);
+function getSubstring(str1, subStr) {
+    var matches = str1.match(new RegExp(subStr, "g"));
+    console.log("The number of "+ subStr + " in " + str1 + " is :" + matches.length);
 }
 
 function occurrencesOfSubstring(fullString, substring){
@@ -90,7 +102,7 @@ function occurrencesOfSubstring(fullString, substring){
 			fullString =  fullString.toLowerCase();									// Conversion to lower case  
 			substring =  substring.toLowerCase();
 			getSubstring(fullString, substring);									// Calculating the matches
-			}
+		}
 		else{
 			throw new exceptionMsg("Please Enter a String!!");
 		}	
@@ -100,8 +112,8 @@ function occurrencesOfSubstring(fullString, substring){
 	}
 }
 
-occurrencesOfSubstring("Helllllllo, class", "ll");
-console.log();
+occurrencesOfSubstring("Helllllllo, Class", "ll");
+console.log("______________________________________________________");
 
 // Randomize Sentences
 
@@ -133,3 +145,4 @@ function randomizeSentences(paragraph){
 }
 
 randomizeSentences(" Hello, world! I am a paragraph. You can tell that I am a paragraph because there are multiple sentences that are split up by punctuation marks. Grammar can be funny, so I will only put in paragraphs with periods, exclamation marks, and question marks -- no quotations.");
+console.log("______________________________________________________");
