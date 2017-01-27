@@ -117,7 +117,7 @@ console.log("______________________________________________________");
 
 // Randomize Sentences
 
-function shuffleArray(a) {															// Shuffling the elements of the Array
+function shuffleArray(a) {						// Shuffling the elements of the Array
 	let j, k, i;
 	for (i = a.length; i; i--) {
 		j = Math.floor(Math.random() * i);
