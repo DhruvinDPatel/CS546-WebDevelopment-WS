@@ -1,20 +1,27 @@
-function tringle(n){
-    let c = n - 1;
-    let j = 0, i = 0;
+/*
+    Lab 2 - CS546 Web Programming
+    Dhruvin Dineshbhai Patel
+    CWID: 10420356
+    dpate78@stevens.edu
+*/
+
+function tringle(lines){
+    let counter = lines - 1;
+    let internalSpace = 0, i = 0;
     try{
-        if(typeof(n) === 'number' && n > 0){
-            console.log(`Drwaing tringle of height:`+n);
+        if(typeof(lines) === 'number' && lines > 0){
+            console.log(`Drwaing tringle of height:`+lines);
             do{
-                let frontSpace = ' '.repeat(c);
-                if( i === n-1){
+                let frontSpace = ' '.repeat(counter);
+                if( i === lines-1){                 // everyother row
                     console.log("/"+"-".repeat(i*2)+"\\");
-                }else{
-                    console.log(frontSpace+"/"+" ".repeat(j)+"\\");
+                }else{                              // for last row
+                    console.log(frontSpace+"/"+" ".repeat(internalSpace)+"\\");
                 }
-                c--;
-                j+=2;
+                counter--;
+                internalSpace+=2;
                 i++;
-            }while(i<n);
+            }while(i<lines);
         }
         else{
             throw "Exception: Invalid Arguments";
@@ -25,22 +32,25 @@ function tringle(n){
     }
 }
 
+//tringle("abc");
+//tringle(-5);
+//tringle(1);
 //tringle(10);
 
-function square(n){
+function square(lines){
     let i = 0;
     try{
-        if(typeof(n) === 'number' && n > 1){
-            console.log(`Drwaing square having ${n} rows`);
+        if(typeof(lines) === 'number' && lines > 1){
+            console.log(`Drwaing square having ${lines} rows`);
             do{
                 let frontSpace = '\t';
-                if( i === n-1 || i === 0){
-                    console.log(frontSpace+"|"+"-".repeat(n)+"|");
-                }else{
-                    console.log(frontSpace+"|"+" ".repeat(n)+"|");
+                if( i === lines-1 || i === 0){                 // for the first and last row
+                    console.log(frontSpace+"|"+"-".repeat(lines)+"|");
+                }else{                                         // for any other row
+                    console.log(frontSpace+"|"+" ".repeat(lines)+"|");
                 }
                 i++;
-            }while(i<n);
+            }while(i<lines);
         }else{
             throw "Exception: Invalid Arguments";
         }
@@ -57,26 +67,26 @@ function square(n){
 // square(3);
 // square(10);
 
-function rhombus(n){
-    let i = 0, j = 1, c = n;
+function rhombus(lines){
+    let i = 0, internalSpace = 1, counter = n;
     try{
-        if(typeof(n) === 'number' && n > 1 && n%2 === 0){
-            console.log(`Drwaing rhombus having ${n} lines`);
+        if(typeof(lines) === 'number' && lines > 1 && lines%2 === 0){
+            console.log(`Drawing rhombus having ${lines} lines`);
             do{
                 let frontSpace = " ";
-                if( i === 0){
-                    console.log(frontSpace.repeat(n)+"/"+"-"+"\\");
-                }else if( i === n-1){
-                    console.log(frontSpace.repeat(n)+"\\"+"-"+"/");
-                }else if( i < n/2){
-                    c--;
-                    j+=2;
-                    console.log(frontSpace.repeat(c)+"/"+" ".repeat(j)+"\\");
+                if( i === 0){                                   // for the first row
+                    console.log(frontSpace.repeat(lines)+"/"+"-"+"\\");
+                }else if( i === lines-1){                       // for the last row
+                    console.log(frontSpace.repeat(lines)+"\\"+"-"+"/");
+                }else if( i < lines/2){                         // for upper tringle rows
+                    counter--;
+                    internalSpace+=2;
+                    console.log(frontSpace.repeat(counter)+"/"+" ".repeat(internalSpace)+"\\");
                 }
-                else{
-                    console.log(frontSpace.repeat(c)+"\\"+" ".repeat(j)+"/");
-                    c++;
-                    j-=2;
+                else{                                           // for lower tringle rows
+                    console.log(frontSpace.repeat(counter)+"\\"+" ".repeat(internalSpace)+"/");
+                    counter++;
+                    internalSpace-=2;
                 }
                 i++;
             }while(i<n);
@@ -91,7 +101,6 @@ function rhombus(n){
 
 rhombus(2);
 rhombus(3);
-rhombus(4);
-rhombus(6);
-rhombus(10);
+rhombus(-4);
+rhombus("ABC");
 rhombus(42);
