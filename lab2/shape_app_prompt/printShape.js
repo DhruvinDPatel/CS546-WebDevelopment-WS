@@ -4,7 +4,6 @@
     CWID: 10420356
     dpate78@stevens.edu
 */
-
 module.exports = {
     description: "this is module for the lab2 which will print different shapes on console",
     tringle : (lines) => {
@@ -32,6 +31,12 @@ module.exports = {
         }catch(e){
             console.log(e);
         }
+    },
+
+    cool: () => {
+
+            console.log("yo");
+
     },
     square: (lines) => {
         let i = 0;

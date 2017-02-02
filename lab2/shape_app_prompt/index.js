@@ -3,7 +3,27 @@ const prompt = require("prompt");
 
 function getInfo() {
     prompt.start();
+    prompt.get(['shape', 'lines'], function(err, result){
+        console.log("Enter Shape: ");
+        console.log('Shape: ' + result.shape);
+        let inputShape = result.shape;
+        if((inputShape == "triangle") || (inputShape == "square") || (inputShape == "rhombus")){
+            console.log('Enter lines: ' +  result.lines);
+            let inputLines = parseInt(result.lines);
 
+            if( inputLines != ""){
+                printShape.tringle(inputLines);
+            }else{
+                console.log("Invalid number of Lines");
+               
+            }
+            
+        }else{
+            console.log("Invalid Input");
+            getInfo();
+        }
+    })
+    /*
     const choose_shape = {
         name: 'choose_shape',
         description: 'Which shape you want to do print on console?',
@@ -22,21 +42,9 @@ function getInfo() {
     const quitPrompt = {
         name: 'quit',
         description: 'Do you want to quit after drawing this shape?',
-        type: "boolean",
+        type: 'boolean',
         required: true
     };
-
-    // function stringToOperation(str) {
-    //     if (!str) return "add";
-
-    //     if (str === "*" || str === "multiply") return "multiply";
-
-    //     if (str === "/" || str === "divide") return "divide";
-
-    //     if (str === "-" || str === "subtract") return "subtract";
-
-    //     return "add";
-    // }
 
     // 
     // Get two properties from the user: username and email 
@@ -44,18 +52,14 @@ function getInfo() {
     prompt.get([choose_shape, lines, quitPrompt], function (err, result) {
         if (result) {
             let lines = result.lines;
+            let quit = result.quit;
+            let shapeFunction = undefined;
 
             if (isNaN(lines)) {
-                console.log("It is not a number");
+                console.log("Not a number");
                 getInfo();
                 return;
             }
-
-            let quit = result.quit;
-
-//            let operation = stringToOperation(result.operation);
-
-            let shapeFunction = undefined;
 
             switch (choose_shape) {
                 case "tringle":
@@ -69,6 +73,8 @@ function getInfo() {
                     break;
             }
 
+            shapeFunction(lines);
+
             if (!quit) {
                 getInfo();
             }
@@ -76,6 +82,7 @@ function getInfo() {
             console.error(err)
         }
     });
+    */
 }
 
 getInfo();
