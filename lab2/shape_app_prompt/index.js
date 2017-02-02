@@ -2,6 +2,7 @@ const printShape = require("./printShape");
 const prompt = require("prompt");
 
 function getInfo() {
+    /*
     prompt.start();
     prompt.get(['shape', 'lines'], function(err, result){
         console.log("Enter Shape: ");
@@ -22,8 +23,7 @@ function getInfo() {
             console.log("Invalid Input");
             getInfo();
         }
-    })
-    /*
+    })*/
     const choose_shape = {
         name: 'choose_shape',
         description: 'Which shape you want to do print on console?',
@@ -82,7 +82,5 @@ function getInfo() {
             console.error(err)
         }
     });
-    */
 }
-
 getInfo();

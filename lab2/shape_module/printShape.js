@@ -4,6 +4,7 @@
     CWID: 10420356
     dpate78@stevens.edu
 */
+
 module.exports = {
     description: "this is module for the lab2 which will print different shapes on console",
     tringle : (lines) => {
@@ -25,7 +26,7 @@ module.exports = {
                 }while(i<lines);
             }
             else{
-                throw "Exception: Invalid Arguments";
+                throw `Exception: Invalid Argument: ${lines} for tringle`;
             }
             console.log();
         }catch(e){
@@ -33,11 +34,6 @@ module.exports = {
         }
     },
 
-    cool: () => {
-
-            console.log("yo");
-
-    },
     square: (lines) => {
         let i = 0;
         try{
@@ -53,7 +49,7 @@ module.exports = {
                     i++;
                 }while(i<lines);
             }else{
-                throw "Exception: Invalid Arguments";
+                throw `Exception: Invalid Argument: ${lines} for square`;
             }
             console.log();
         }catch(e){
@@ -82,10 +78,10 @@ module.exports = {
                         internalSpace-=2;
                     }
                     i++;
-                }while(i<n);
+                }while(i<lines);
                 console.log();
             }else{
-                throw "Exception: Invalid Arguments";
+                throw `Exception: Invalid Argument: ${lines} for rhombus`;
             }
         }catch(e){
             console.log(e);
