@@ -1,20 +1,40 @@
 const fs = require('fs');
 let fileData = exports = module.exports;
 
-fileData.getFileAsString = (path) => {
-    return new Promise((fulfil, reject) => {
-        if(!path) throw "File path not provided";
+fileData.getFileAsString = (filename) => {
+    return new Promise((fulfill, reject) => {
+        if(!filename) throw reject("File path not provided");
 
-        fs.readFile(path, "utf-8", (error, data) => {
+        fs.readFile(filename, "utf-8", (error, data) => {
             if(error){
                 reject(error);
                 return;
             }
             try{
-                fulfil(data);
+                let s = data.toString(); 
+                fulfill(s);
             }catch(error){
                 reject(error);
             }
         });
     })
 };
+
+fileData.getFileAsJSON = (filename) => {
+    return new Promise((fulfill, reject) => {
+        if(!filename) throw reject("File path not provided");
+
+        fs.readFile(filename, "utf-8", (error, data) => {
+            if(error){
+                reject(error);
+                return;
+            }
+            try{
+                let d = JSON.parse(data);
+                fulfill(d);
+            }catch(error){
+                reject(error);
+            }
+        });
+    })
+}
