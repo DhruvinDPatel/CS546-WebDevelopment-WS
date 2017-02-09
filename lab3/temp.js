@@ -2,7 +2,7 @@ const rf = require("./fileData");
 
 //console.log("Start of code");
 let readResult = rf.getFileAsString("abc.txt");
-/*
+
 readResult.then((data) => { 
     console.log(`Content of file: ${data}`);
 }).catch((error) => {
@@ -17,11 +17,11 @@ readJSONResult.then((data) => {
 }).catch((error) =>{
     console.log(error);
 })
-*/
-let saveStringResult = rf.saveStringToFile("abc.txt",'added string\n');
+
+let saveStringResult = rf.saveStringToFile("abc.txt",'appended string\n');
 
 saveStringResult.then((data) => {
-    console.log(data);
+    console.log(data+" :String added");
 }).catch((error) => {
     console.log(error);
 })

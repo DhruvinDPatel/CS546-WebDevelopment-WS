@@ -51,8 +51,7 @@ fileData.saveStringToFile = (filename, text) => {
                     reject(error);
                     return;
                 }
-                fulfill(text);
-                return 'true';
+                fulfill('true');
             });
         }else{
             fs.writeFile(filename, text, (error) => {
@@ -60,8 +59,7 @@ fileData.saveStringToFile = (filename, text) => {
                     reject(error);
                     return;
                 }
-                fulfill(text);
-                return 'true';
+                fulfill('true');
             });
         }
     });
