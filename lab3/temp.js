@@ -7,8 +7,6 @@ readResult.then((data) => {
     console.log(data);
 }).catch((error) => {
     console.log(error);
-}).then(() =>{
-    console.log("Done reading file");
 })
 
 let readJSONResult = rf.getFileAsJSON();
@@ -16,7 +14,5 @@ let readJSONResult = rf.getFileAsJSON();
 readJSONResult.then((data) => {
     console.log(data);
 }).catch((error) =>{
-    console.log(error);
-}).then(()=>{
     console.log(error);
 })

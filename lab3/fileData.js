@@ -3,7 +3,7 @@ let fileData = exports = module.exports;
 
 fileData.getFileAsString = (filename) => {
     return new Promise((fulfill, reject) => {
-        if(!filename) throw reject("File path not provided");
+        if(!filename) throw reject("EXCEPTION: File path not provided");
 
         fs.readFile(filename, "utf-8", (error, data) => {
             if(error){
@@ -12,6 +12,7 @@ fileData.getFileAsString = (filename) => {
             }
             try{
                 let s = data.toString(); 
+                console.log("Done reading file");
                 fulfill(s);
             }catch(error){
                 reject(error);
@@ -22,7 +23,7 @@ fileData.getFileAsString = (filename) => {
 
 fileData.getFileAsJSON = (filename) => {
     return new Promise((fulfill, reject) => {
-        if(!filename) throw reject("File path not provided");
+        if(!filename) throw reject("EXCEPTION: File path not provided");
 
         fs.readFile(filename, "utf-8", (error, data) => {
             if(error){
@@ -31,6 +32,7 @@ fileData.getFileAsJSON = (filename) => {
             }
             try{
                 let d = JSON.parse(data);
+                console.log("Done reading JSON");
                 fulfill(d);
             }catch(error){
                 reject(error);
