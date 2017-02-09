@@ -45,12 +45,24 @@ fileData.saveStringToFile = (filename, text) => {
     return new Promise((fulfill, reject) => {
         if(!filename || !text) throw reject("EXCEPTION: file or text not provided");
 
-        fs.writeFile(filename, text, (error, data) => {
-            if(error){
-                reject(error);
-                return;
-            }
-            fulfill(data);
-        });
+        if(filename){
+            fs.appendFile(filename, text, (error) => {
+                if(error){
+                    reject(error);
+                    return;
+                }
+                fulfill(text);
+                return 'true';
+            });
+        }else{
+            fs.writeFile(filename, text, (error) => {
+                if(error){
+                    reject(error);
+                    return;
+                }
+                fulfill(text);
+                return 'true';
+            });
+        }
     });
 };
