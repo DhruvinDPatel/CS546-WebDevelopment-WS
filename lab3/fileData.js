@@ -70,7 +70,7 @@ fileData.saveJSONToFile = (filename, obj) => {
         if(!filename || !obj) throw reject("EXCEPTION: file or Obj not provided");
 
         if(filename){
-            fs.appendFile(filename, JSON.stringify(obj), (error) => {
+            fs.appendFile(filename, JSON.stringify(obj, null, 4), (error) => {
                 if(error){
                     reject(error);
                     return;
@@ -78,7 +78,7 @@ fileData.saveJSONToFile = (filename, obj) => {
                 fulfill('true');
             });    
         }else{
-            fs.writeFile(filename, JSON.stringify(obj), (error) => {
+            fs.writeFile(filename, JSON.stringify(obj, null, 4), (error) => {
                 if(error){
                     reject(error);
                     return;
