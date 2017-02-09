@@ -64,3 +64,27 @@ fileData.saveStringToFile = (filename, text) => {
         }
     });
 };
+
+fileData.saveJSONToFile = (filename, obj) => {
+    return new Promise((fulfill, reject) =>{
+        if(!filename || !obj) throw reject("EXCEPTION: file or Obj not provided");
+
+        if(filename){
+            fs.appendFile(filename, JSON.stringify(obj), (error) => {
+                if(error){
+                    reject(error);
+                    return;
+                }
+                fulfill('true');
+            });    
+        }else{
+            fs.writeFile(filename, JSON.stringify(obj), (error) => {
+                if(error){
+                    reject(error);
+                    return;
+                }
+                fulfill('true');
+            });
+        }
+    })
+}
