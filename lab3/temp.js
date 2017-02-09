@@ -25,3 +25,22 @@ saveStringResult.then((data) => {
 }).catch((error) => {
     console.log(error);
 })
+
+let sampleObj = {
+    "1":    {
+        "name": "Alan Mercer",
+        "desc": "Sample object 1"
+    },
+    "2":    {
+        "name": "Clifton Collins",
+        "desc": "Sample object 2"
+    }
+}
+
+let saveJSONToFile = rf.saveJSONToFile("cde.txt",sampleObj);
+
+saveStringResult.then((data) => {
+    console.log(data+" :Object Added");
+}).catch((error) => {
+    console.log(error);
+})
