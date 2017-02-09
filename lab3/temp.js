@@ -17,3 +17,11 @@ readJSONResult.then((data) => {
 }).catch((error) =>{
     console.log(error);
 })
+
+let saveStringResult = rf.saveStringToFile();
+
+saveStringResult.then(() => {
+    console.log("Saving string to the file");
+}).catch((error) => {
+    console.log(error);
+})
