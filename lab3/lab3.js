@@ -40,7 +40,7 @@ let sampleObj = {
 let saveJSONToFile = fd.saveJSONToFile("cde.txt",sampleObj);
 
 saveJSONToFile.then((data) => {
-    console.log(data+" :Object Added");
+    console.log(data+" :JSONObject Added to file");
 }).catch((error) => {
     console.log(error);
 })
