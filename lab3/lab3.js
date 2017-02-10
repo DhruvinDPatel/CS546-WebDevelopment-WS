@@ -28,7 +28,7 @@ saveStringResult.then((data) => {
 
 let sampleObj = {
     "1":    {
-        "name": "Alan Mercer",
+        "name": "Alax Mercer",
         "desc": "Sample object 1"
     },
     "2":    {

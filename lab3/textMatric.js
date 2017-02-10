@@ -5,8 +5,8 @@ let textMatric = exports = module.exports;
 textMatric.simplify = (text, error) => {
     try{
         text = text.toLowerCase();
-        text = text.replace(/\s+/g, ' ');
-        text = text.replace(/[^a-zA-Z0-9]+/g, " "); 
+        text = text.replace(/\s+/g, ' ');           // removing multiple spaces
+        text = text.replace(/[^a-zA-Z0-9]+/g, " "); // replacing non-alphanumeric characters to single space
         return text;
     }catch(error){
         return(error);
@@ -24,7 +24,7 @@ textMatric.createMatrics = (text, error) =>{
     let uniqueWords = 0;
     try{
         text = textMatric.simplify(text);
-        wordDictionary = text.split(' ');
+        wordDictionary = text.split(' ');           
         totalWords = text.split(' ').length;
         totalLetters = text.replace(/ /g,'').length; //replace('/[a-z]/gim');
         
