@@ -50,7 +50,6 @@ textMatric.createMatrics = (text, error) =>{
         result['longWords'] = longWords;
         result['averageWordLength'] = avgWordLength;
         result['wordOccurrences'] = wordFrequency;
-
         return(result);
     }catch(error){
         return(error);

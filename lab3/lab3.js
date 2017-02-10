@@ -1,7 +1,7 @@
-const rf = require("./fileData");
+const fd = require("./fileData");
 
 //console.log("Start of code");
-let readResult = rf.getFileAsString("abc.txt");
+let readResult = fd.getFileAsString("abc.txt");
 
 readResult.then((data) => { 
     console.log(`Content of file: ${data}`);
@@ -9,7 +9,7 @@ readResult.then((data) => {
     console.log(error);
 })
 
-let readJSONResult = rf.getFileAsJSON("xyz.json");
+let readJSONResult = fd.getFileAsJSON("xyz.json");
 
 readJSONResult.then((data) => {
     console.log("Content of JSON file:");
@@ -18,7 +18,7 @@ readJSONResult.then((data) => {
     console.log(error);
 })
 
-let saveStringResult = rf.saveStringToFile("abc.txt",'\nappended string');
+let saveStringResult = fd.saveStringToFile("abc.txt",'\nappended string');
 
 saveStringResult.then((data) => {
     console.log(data+" :String added");
@@ -37,9 +37,9 @@ let sampleObj = {
     }
 }
 
-let saveJSONToFile = rf.saveJSONToFile("cde.txt",sampleObj);
+let saveJSONToFile = fd.saveJSONToFile("cde.txt",sampleObj);
 
-saveStringResult.then((data) => {
+saveJSONToFile.then((data) => {
     console.log(data+" :Object Added");
 }).catch((error) => {
     console.log(error);
