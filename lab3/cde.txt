@@ -17,4 +17,13 @@ added string{
         "name": "Clifton Collins",
         "desc": "Sample object 2"
     }
+}{
+    "1": {
+        "name": "Alax Mercer",
+        "desc": "Sample object 1"
+    },
+    "2": {
+        "name": "Clifton Collins",
+        "desc": "Sample object 2"
+    }
 }
