@@ -1,0 +1,16 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "repo to manage todo list",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DhruvinDPatel",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.24",
+    "node-uuid": "^1.4.7"
+  }
+}

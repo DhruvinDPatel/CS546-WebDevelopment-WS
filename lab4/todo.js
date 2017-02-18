@@ -66,7 +66,7 @@ let methodsToExport = {
 
         return todo().then((todoItemsCollection) =>{
             return todoItemsCollection
-                    .removeOne({_id:string})
+                    .removeOne({_id:str})
                     .then((deletedInfo) =>{
                         if(deletedInfo.deletedCount == 0){
                             throw(`Could not delete the task with id of ${str}`);
@@ -109,17 +109,17 @@ let methodsToExport = {
             });
         },
 
-        getAllTasks(){
-            return todo().then((todoItemsCollection) =>{
-                return todoItemsCollection.find().toArray((err,docs) =>{
-                    docs.forEach((docs) => {
-                        console.log(docs);
-                    })
+    getAllTasks(){
+        return todo().then((todoItemsCollection) =>{
+            return todoItemsCollection.find().toArray((err,docs) =>{
+                docs.forEach((docs) => {
+                    console.log(docs);
                 })
-            }).catch((err) =>{
-                console.error(err);
-            });
-        }
+            })
+        }).catch((err) =>{
+            console.error(err);
+        });
+    }
 }
 
 module.exports = methodsToExport;
