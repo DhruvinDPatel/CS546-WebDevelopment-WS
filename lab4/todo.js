@@ -4,6 +4,21 @@ const todo = todoCollectoions.todoItems;
 
 let methodsToExport = {
 
+    getTask(id){
+        if(!id){
+            return Promise.reject("You must provide a ID to be searched");
+        }
+
+        let bytes = uuid.parse(id);
+        let str = uuid.unparse(bytes);
+
+        return todo().then((todoItemsCollection) =>{
+            return todoItemsCollection.findOne({_id : str});
+        }).catch((err) =>{
+            console.error(err);
+        });
+    },
+
     createTask(title, description){
 
         if(!title){
@@ -39,21 +54,6 @@ let methodsToExport = {
         }).catch((err) => {
             console.error(err);
         })
-    },
-
-    getTask(id){
-        if(!id){
-            return Promise.reject("You must provide a ID to be searched");
-        }
-
-        let bytes = uuid.parse(id);
-        let str = uuid.unparse(bytes);
-
-        return todo().then((todoItemsCollection) =>{
-            return todoItemsCollection.findOne({_id : str});
-        }).catch((err) =>{
-            console.error(err);
-        });
     },
 
     removeTask(id){
